@@ -110,6 +110,7 @@ PLATFORMS
 
 DEPENDENCIES
   html-proofer (~> 3.18)
+  jekyll
   jekyll-theme-chirpy (~> 4.3, >= 4.3.4)
   tzinfo (~> 1.2)
   tzinfo-data
