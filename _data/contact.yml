@@ -4,19 +4,20 @@
   type: github
   icon: 'fab fa-github'
 -
+  type: facebook
+  icon: 'fab fa-facebook'
+  url: 'https://www.facebook.com/tuanio1211/'
+-
   type: email
   icon: 'fas fa-envelope'
   noblank: true            # open link in current tab
--
-  type: facebook
-  icon: 'fab fa-facebook'
--
-  type: twitter
-  icon: 'fab fa-twitter'
--
-  type: rss
-  icon: 'fas fa-rss'
-  noblank: true
+# -
+#   type: twitter
+#   icon: 'fab fa-twitter'
+# -
+#   type: rss
+#   icon: 'fas fa-rss'
+#   noblank: true
 
 
 

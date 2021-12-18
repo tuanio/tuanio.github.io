@@ -31,11 +31,9 @@ url: 'https://tuanio.github.io/'
 github:
   username: tuanio             # change to your github username
 
-twitter:
-  username: twitter_username            # change to your twitter username
+# twitter:
+#   username: twitter_username            # change to your twitter username
 
-facebook:
-  username: tuanio1211
 
 social:
   # Change to your full name.
