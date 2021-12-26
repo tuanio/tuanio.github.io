@@ -1,5 +1,5 @@
 ---
-title: Markov Chain và bài toán "Sáng nay ăn gì"
+title: Markov Chain và bài toán 'Sáng nay ăn gì'
 date: 2021-12-26 21:35:00 +/-0084
 categories: [knowledge]
 tags: [ml, probability]
