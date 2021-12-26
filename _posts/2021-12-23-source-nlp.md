@@ -1,8 +1,8 @@
 ---
 title: Nguồn tài liệu để học NLP
 date: 2021-12-23 15:11:00 +/-0084
-categories: [resource, nlp]
-tags: [share]
+categories: [resource, share]
+tags: [nlp]
 toc: true
 comments: true
 published: true
