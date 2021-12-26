@@ -34,7 +34,7 @@ Giả sử vào một buổi sáng nọ, bạn thức dậy với 2 lần reo ch
 
 Đó chỉ là một câu chuyện vui do tôi bịa ra để dẫn vào bài toán có thể giải quyết bằng Markov chain này. Trên thực tế, Markov chain có thể giải các bài toán to lớn hơn, nhưng trước tiên chúng ta cứ giải bài toán kia để bạn có thể lấp đầy cái bụng đã.
 
-Trong ví dụ này, tôi sẽ hiện thực bằng Python, đọc data theo thời gian lên và tìm bộ các trạng thái $Q$, rồi tìm xác suất của ma trận $P$ kia, sau đó chọn ngẫu nhiên trạng thái (món ăn sáng) tiếp theo trên phân phối đã biết của xác suất của trạng thái (món ăn) hiện tại. Bạn có thể tải data ở <a href="/code/2021-12-26-markov-chain-va-bai-toan-sang-nay-an-gi/breakfast.csv" target="_blank">đây</a>
+Trong ví dụ này, tôi sẽ hiện thực bằng Python, đọc data theo thời gian lên và tìm bộ các trạng thái $Q$, rồi tìm xác suất của ma trận $P$ kia, sau đó chọn ngẫu nhiên trạng thái (món ăn sáng) tiếp theo trên phân phối đã biết của xác suất của trạng thái (món ăn) hiện tại. Bạn có thể tải data ở <a href="{{ code_path }}/2021-12-26-markov-chain-va-bai-toan-sang-nay-an-gi/breakfast.csv" target="_blank">đây</a>
 
 Đối với bộ data ở trên, tập trạng thái của chúng ta sẽ là $Q=\{\text{Phở}, \text{Cơm tấm}, \text{Bánh mì}, \text{Súp cua}\}$
 
@@ -153,7 +153,7 @@ Vậy mô hình Markov chain chúng ta đã hiện thực đã dự đoán cho c
 
 ⚠️ **Lưu ý**: Các giá trị, số liệu được xuất ra trong bài có thể khác, tùy thuộc vào dữ liệu cung cấp và sự lựa chọn ngẫu nhiên của các hàm trên.
 
-*Chi tiết toàn bộ code, bạn đọc có thể tham khảo ở <a href="/code/2021-12-26-markov-chain-va-bai-toan-sang-nay-an-gi" target="_blank"/>đây</a>*
+*Chi tiết toàn bộ code, bạn đọc có thể tham khảo ở <a href="{{ code_path }}/2021-12-26-markov-chain-va-bai-toan-sang-nay-an-gi" target="_blank"/>đây</a>*
 
 # 3. Tổng kết
 
