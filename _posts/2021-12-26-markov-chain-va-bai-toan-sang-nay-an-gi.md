@@ -3,7 +3,6 @@ title: Markov Chain và bài toán 'Sáng nay ăn gì'
 date: 2021-12-26 21:35:00 +/-0084
 categories: [knowledge]
 tags: [ml, probability]
-permalink: 2021/12/26/markov-chain-va-bai-toan-hom-nay-an-gi
 toc: true
 math: true
 published: true
