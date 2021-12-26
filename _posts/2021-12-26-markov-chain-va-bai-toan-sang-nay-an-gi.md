@@ -22,7 +22,7 @@ Markov chain là sự kết hợp bởi 2 thành phần: tập trạng thái $Q$
 
 Markov chain $\text{MC}$ sẽ có hình dạng trông giống như một đồ thị có hướng, có trọng số, với các node trên đồ thị là các trạng thái trong tập trạng thái của Markov chain, và các trọng số trên các cạnh của đồ thị mô tả xác suất chuyển $P_{ij}$, là xác suất để di chuyển từ trạng thái $Q_i$ đến trạng thái $Q_j$. Nếu $P_{ij} = 0$, ta ngầm hiểu rằng không thể di chuyển giữa hai trạng thái $Q_i$ và $Q_j$. ⚠️ **Lưu ý** là các trạng thái cũng có thể quay trở về chính nó, ví dụ $P_{33}$ là xác suất để thời điểm hiện tại, Markov chain đang ở trạng thái $Q_3$ và thời điểm tiếp theo sẽ quay trở lại $Q_3$. Hình dưới đây mô tả Markov chain $\text{MC}$.
 
-<img src="https://github.com/tuanio/tuanio.github.io/blob/main/assets/markov_chain/mc_ex.png" alt="mc_ex" />
+<img src="/assets/markov_chain/mc_ex.png" alt="mc_ex" />
 
 Để quan sát được đường đi của các trạng thái trong Markov chain, ta cần định nghĩa quan sát $X = (X_1, X_2, \cdots, X_t, \cdots, X_T)$ là một vector có $T$ thành phần, mô tả các quan sát của Markov chain theo thời gian, $X_t \in Q$. $X=(X_1 = Q_1, X_2 = Q_1, X_3 = Q_2, X_4 = Q_3)$ là một ví dụ về chuỗi quan sát các trạng thái của Markov chain, với xác suất xảy ra chuỗi quan sát này là tích các xác suất chuyển đổi, $P(X) = \prod_{i=1}^{T-1} X_{i}X_{i+1}$, trong ví dụ của chúng ta thì sẽ là $P(X) = P_{11}P_{12}P_{23}$, trên thực tế, ta có thể lấy logarit của $P(X)$, tạo thuận lợi cho việc tính toán, tránh bị tràn số trong các chương trình máy tính.
 
