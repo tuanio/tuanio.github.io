@@ -73,6 +73,7 @@ n = len(data)
 for i in range(n):
     food_count[data[i]] += 1
     if i == n - 1:
+        # self loop
         food_pair_count[data[i]][data[i]] += 1
         break
     food_pair_count[data[i]][data[i + 1]] += 1
