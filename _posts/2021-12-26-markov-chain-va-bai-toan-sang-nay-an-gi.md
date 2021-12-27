@@ -102,9 +102,7 @@ Ta bây giờ có thể tạo ma trận $P$ từ xác suất đã chuẩn hóa t
 ````python
 P = []
 for key, value in food_pair_count.items():
-    P.append([])
-    for k, v in value.items():
-        P[-1].append(v)
+    P.append(list(value.values()))
         
 # chuyển list sang numpy để dễ tính toán
 P = np.array(P)
