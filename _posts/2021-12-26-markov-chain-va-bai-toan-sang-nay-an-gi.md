@@ -98,7 +98,7 @@ print(key_to_idx)
 {'Bánh mì': 0, 'Cơm tấm': 1, 'Phở': 2, 'Súp cua': 3}
 ````
 
-Ta bây giờ có thể tạo ma trận P từ xác suất đã chuẩn hóa từ bước trên, và nên chuyển từ list sang numpy để tiện lợi cho việc tính toán hơn, do numpy là một thư viện rất mạnh của Python trong việc xử lý các thao tác liên quan đến đại số tuyến tính.
+Ta bây giờ có thể tạo ma trận $P$ từ xác suất đã chuẩn hóa từ bước trên, và nên chuyển từ list sang numpy để tiện lợi cho việc tính toán hơn, do numpy là một thư viện rất mạnh của Python trong việc xử lý các thao tác liên quan đến đại số tuyến tính.
 ````python
 P = []
 for key, value in food_pair_count.items():
@@ -140,13 +140,13 @@ predicted_probability = P[key_to_idx[curr_food]][key_to_idx[predicted_food]]
 
 In ra kết quả dự đoán
 ````python
-print(f'Món ăn chúng ta ăn hiện tại: {data[-1]}')
-print(f'Món ăn nên ăn vào ngày mai là "{predicted_food}"\
+print(f'Món ăn chúng ta ăn hôm trước: {data[-1]}')
+print(f'Món ăn nên ăn vào hôm nay là "{predicted_food}"\
  với khả năng xảy ra là {round(predicted_probability * 100, 2)}%')
 ````
 ````plain
-Món ăn chúng ta ăn hiện tại: Phở
-Món ăn nên ăn vào ngày mai là "Bánh mì" với khả năng xảy ra là 28.57%
+Món ăn chúng ta ăn hôm trước: Phở
+Món ăn nên ăn vào hôm nay là "Bánh mì" với khả năng xảy ra là 28.57%
 ````
 
 Vậy mô hình Markov chain chúng ta đã hiện thực đã dự đoán cho chúng ta món "Bánh mì" vào hôm nay.
