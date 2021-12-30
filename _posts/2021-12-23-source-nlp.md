@@ -2,7 +2,7 @@
 title: Nguồn tài liệu để học NLP
 date: 2021-12-23 15:11:00 +/-0084
 categories: [resource, share]
-tags: [nlp]
+tags: [machine learning, nlp]
 toc: true
 comments: true
 published: true
@@ -19,3 +19,7 @@ Vào thời gian này, mình cũng bắt đầu có kế hoạch học NLP, nên
 # Dữ liệu
 
 - [nlp-datasets - github](https://github.com/niderhoff/nlp-datasets)
+
+# Sách 
+
+- **Deep Learning for NLP and Speech Recognition**: mọi người lên zlib rồi gõ tên này là sách sẽ ra, bản pdf mới coong. Cuốn này sẽ tập trung vào cả NLP và Speech Recognition, đi từ các kiến thức nền tảng của Machine Learning, sau đó đến Deep Learning và các lý thuyết, kỹ thuật được dùng cho cả NLP và Speech Recognition. Cuốn sách này còn được hiện thực bằng Pytorch, Tensorflow nên đọc xong tha hồ mà lên tay gõ phím.
