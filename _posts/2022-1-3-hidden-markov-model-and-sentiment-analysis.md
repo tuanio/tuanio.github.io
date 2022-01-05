@@ -9,6 +9,18 @@ published: true
 math: true
 ---
 
+### Nội dung
+- [1. Định nghĩa](#-dinh-nghia)
+- [2. Ba bài toán nền tảng](#-three-problems)
+- [3. Bài toán phân tích cảm xúc văn bản](#-bai-toan-phan-tich-cam-xuc-van-ban)
+    - [3.1 Giới thiệu bài toán phân tích cảm xúc văn bản](#-gioi-thieu-bai-toan)
+    - [3.2 Bộ dữ liệu Financial News của Kaggle](#-bo-du-lieu)
+    - [3.3 Mô hình bài toán](#-mo-hinh-bai-toan)
+    - [3.4 Phương pháp thực hiện](#-phuong-phap)
+- [4. Tổng kết](#-tong-ket)
+- [5. Tham khảo](#-tham-khao)
+
+<a name="-dinh-nghia"></a>
 # 1. Định nghĩa
 
 Ở bài viết về [Markov chain](/posts/markov-chain-va-bai-toan-sang-nay-an-gi/), chúng ta đã tìm hiểu về một mô hình được kết hợp bởi các trạng thái, các trạng thái cũng đồng thời cũng là kết quả của mô hình. Trong bài viết này, chúng ta sẽ tìm hiểu về mô hình Markov ẩn (Hidden Markov model - HMM), mà các trạng thái của mô hình lúc này sẽ không phải là thứ chúng ta có thể quan sát được.
@@ -47,6 +59,7 @@ Do có cấu tạo như hình 2, mô hình Markov ẩn rất thích hợp trong 
 
 Phần tiếp theo, phần 2 sẽ giới thiệu ba bài toán nền tảng của mô hình Markov ẩn, tuy nền tảng nhưng là nền móng cho mọi bài toán phức tạp hơn trong thế giới thực chiến.
 
+<a name="-three-problems"></a>
 # 2. Ba bài toán nền tảng
 
 Ở phần 1, tôi đã đi sơ lược về cấu tạo, cấu trúc và các thành phần đằng sau mô hình Markov ẩn. Đến thời điểm này, chắc hẳn bạn đọc sẽ thắc mắc cách sử dụng mô hình Markov ẩn như thế nào, vì thực tế, mô hình Markov ẩn có một cấu trúc dạng chuỗi tuần tự đặc biệt, trông rất khác so với các mô hình truyền thống như Linear Regression, Logistic Regression, Random Forest, ... .
@@ -66,17 +79,21 @@ Cả ba bài toán trên đều có cách giải rất đơn giản, đó là th
 
 Trong phần này, tôi chỉ đi giới thiệu về ba bài toán, về cách giải sẽ không được đề cập đến, bạn đọc có hứng thú với lời giải cho ba bài toán có thể tham khảo [[3]](#-reference-3), đây là bài báo rất chất lượng về mô hình Markov ẩn, là nền tảng cho bất cứ ai mới bắt đầu tìm hiểu về mô hình Markov ẩn. Nếu gặp khó khăn trong việc hiện thực thuật toán, bạn đọc có thể tham khảo đến <a href="https://github.com/tuanio/hmm" target="_blank">github</a> của tôi, tôi cũng đã đọc bài báo số [[3]](#-reference-3) và hiện thực thành công.
 
+<a name="-bai-toan-phan-tich-cam-xuc-van-ban"></a>
 # 3. Bài toán phân tích cảm xúc văn bản
 
+<a name="-gioi-thieu-bai-toan"></a>
 ## 3.1 Giới thiệu bài toán phân tích cảm xúc văn bản
 Phân tích cảm xúc văn bản (<a href="https://en.wikipedia.org/wiki/Sentiment_analysis" target="_blank">sentiment analysis</a>) là bài toán được nghiên cứu trong lĩnh vực Xử lý ngôn ngữ tự nhiên. Mục tiêu của bài toán là tìm ra cảm xúc (*tích cực*, *tiêu cực*, *trung tính*) của một câu chữ trong một lĩnh vực cụ thể nào đó. Bài toán này rất được ưa chuộng trong các công ty mà lượng dữ liệu về chữ của họ lớn, họ có thể khai thác thông tin từ nguồn dữ liệu của họ, từ đó hiểu được khách hàng của họ cần gì. Ví dụ như các bình luận trên shopee hay tiki là một ví dụ, một câu "Tôi rất thích sản phẩm này" sẽ được đánh nhãn là *tích cực*, câu "Sản phẩm này nhăn nheo quá" sẽ được gán nhãn là *tiêu cực*, một trường hợp khác có nhãn là *trung tính*, không rõ ràng *tích cực* hay *tiêu cực*, ví dụ như câu "Hôm nay tôi vừa nhận được sản phẩm này".
 
 Hiện tại, bài toán này có thể giải quyết bằng những phương pháp Machine Learning hoặc mạnh hơn là Deep Learning, chi tiết bạn đọc có thể tìm hiểu ở <a href="https://paperswithcode.com/task/sentiment-analysis" target="_blank">đây</a>. Nhưng trong phạm vi bài viết này, chúng ta sẽ tiếp cận với một hướng khác, đó là giải quyết bài toán này bằng mô hình Markov ẩn.
 
+<a name="-bo-du-lieu"></a>
 ## 3.2 Bộ dữ liệu Financial News của Kaggle
 
 Bộ dữ liệu chúng ta sẽ đi nghiên cứu là bộ <a href="https://www.kaggle.com/ankurzing/sentiment-analysis-for-financial-news" target="_blank">Financial News</a> được lấy trên Kaggle. Dữ liệu gồm 2 cột, 4837 hàng, cột thứ nhất là nhãn, tức là cảm xúc của văn bản đã được gắn từ trước, gồm 3 giá trị: `positive`, `neutral`, `negative`. Cột thứ hai là văn bản. Dữ liệu này đầy đủ và đơn giản để sử dụng trong bài toán này.
 
+<a name="-mo-hinh-bai-toan"></a>
 ## 3.3 Mô hình bài toán
 
 Khi ứng dụng mô hình Markov ẩn vào bài toán phân lớp (classification) như chúng ta đang định làm, chúng ta phải mô hình hóa một số lượng mô hình Markov ẩn riêng biệt bằng với số lượng lớp của bài toán. Nếu lấy bộ dữ liệu Financial News kia làm chuẩn, ta sẽ có 3 mô hình Markov ẩn tương ứng với 3 lớp `positive`, `neutral` và `negative`.
@@ -101,6 +118,7 @@ $P(O|\lambda_{C_i})$ (bài toán số 1) và chọn nhãn $C$ có giá trị xá
     <em>Hình 3: Sơ đồ của mô hình Markov ẩn (a) trong quá trình huấn luyện và (b) trong quá trình kiểm thử</em>
 </p>
 
+<a name="-phuong-phap"></a>
 ## 3.4 Phương pháp thực hiện
 
 Bây giờ chúng ta sẽ đi đến phần hiện thực bài toán, tôi sẽ sử dụng ngôn ngữ lập trình Python với các thư viện ở ô code dưới đây.
@@ -293,11 +311,14 @@ print("Độ chính xác tập kiểm thử: %.2f/1" % acc_test)
 
 Toàn bộ code Python hiện thực sẽ để ở <a href="https://github.com/tuanio/sentiment-analysis-discrete-hmm" target="_blank">đây</a>.
 
+<a name="-tong-ket"></a>
 # 4. Tổng kết
 
 Trong bài viết này, chúng ta đã đi qua sơ lược về định nghĩa, các thành phần và các bài toán của mô hình Markov ẩn. Từ đó ứng dụng mô hình Markov ẩn vào bài toán phân tích cảm xúc văn bản. Độ chính xác của mô hình không quá cao, nhưng nó giúp bạn đọc có thể hiểu thêm về mô hình này. Bạn đọc có thể đọc thêm về mô hình Markov ẩn ở các bài báo và địa chỉ website trong phần 5.
 
+<a name="-tham-khao"></a>
 # 5. Tham khảo
+
 
 [1] https://web.stanford.edu/~jurafsky/slp3/A.pdf
 
