@@ -123,7 +123,7 @@ $P(O|\lambda_{C_i})$ (bài toán số 1) và chọn nhãn $C$ có giá trị xá
 
 Bây giờ chúng ta sẽ đi đến phần hiện thực bài toán, tôi sẽ sử dụng ngôn ngữ lập trình Python với các thư viện ở ô code dưới đây.
 
-**⚠ Lưu ý**: khi code báo lỗi thư viện, các bạn có thể tự cài thư viện thông qua `pip install {tên thư viện}`.
+⚠️ **Lưu ý**: khi code báo lỗi thư viện, các bạn có thể tự cài thư viện thông qua `pip install {tên thư viện}`.
 
 ````python
 import numpy as np # thư viện tính toán 
@@ -279,7 +279,7 @@ class HMMSystem:
 
 Huấn luyện mô hình với tập dữ liệu huấn luyện. Ta sẽ chọn số lượng trạng thái ẩn $Q$ là 8.
 
-**⚠ Lưu ý:** quá trình huấn luyện có thể hơi lâu, khoảng vài phút.
+⚠️ **Lưu ý:** quá trình huấn luyện có thể hơi lâu, khoảng vài phút.
 
 ````python
 model = HMMSystem(8, rs)

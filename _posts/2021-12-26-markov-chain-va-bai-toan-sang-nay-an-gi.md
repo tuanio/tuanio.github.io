@@ -8,8 +8,14 @@ math: true
 published: true
 ---
 
+### Nội dung
+- [1. Định nghĩa Markov chain](#-dinh-nghia)
+- [2. Bài toán "sáng nay ăn gì"](#-bai-toan-sang-nay-an-gi)
+- [3. Tổng kết](#-tong-ket)
+
 Trong bài viết này, chúng ta sẽ đi qua sơ lược về định nghĩa của Markov chain, từ đó hiểu thêm về Markov chain để ứng dụng vào một bài toán và thực nghiệm bằng Python.
 
+<a name="-dinh-nghia"></a>
 # 1. Định nghĩa Markov chain
 
 Markov chain (<a href="https://en.wikipedia.org/wiki/Markov_chain" target="_blank">chuỗi Markov</a>), được đặt theo tên nhà toán học người Nga <a href="https://en.wikipedia.org/wiki/Andrey_Markov" target="_blank">Andrey Markov</a>, là một mô hình ngẫu nhiên hay <a href="https://en.wikipedia.org/wiki/Stochastic_process" target="_blank">tiến trình ngẫu nhiên</a> mô tả một chuỗi các sự kiện có khả năng xảy ra, mà xác suất để xảy ra sự kiện tiếp theo phụ thuộc chỉ vào sự kiện hiện tại. Đây là một mô hình *"không có trí nhớ"* (memorylessness), nghĩa là các sự kiện xảy ra trong quá khứ sẽ không được ghi nhớ, sự kiện trong tương lai chỉ phụ thuộc sự kiện hiện tại của mô hình.
@@ -28,6 +34,7 @@ Markov chain $\text{MC}$ sẽ có hình dạng trông giống như một đồ t
 
 Cụ thể hơn về ký hiệu toán học của xác suất chuyển đổi, $P_{ij}=Pr(X_{t+1} = Q_j\|X_t = Q_i)$ là xác suất để thời điểm $t$, trạng thái hiện tại của Markov chain là $Q_i$, và trạng thái của quan sát trong tương lai $t+1$ là $Q_{j}$.
 
+<a name="-bai-toan-sang-nay-an-gi"></a>
 # 2. Bài toán "Sáng nay ăn gì"
 
 Giả sử vào một buổi sáng nọ, bạn thức dậy với 2 lần reo chuông báo thức đã qua từ điện thoại, bạn ngồi dậy, với cái bụng đang reo lên, bạn liền suy nghĩ đến việc: sáng hôm nay mình sẽ ăn gì?. Sau khi ra đầu ngõ, bạn đứng trước "ngã tư": quán phở cô Ba, xe bánh mì cô Hai, cơm tấm chú Sáu và xe súp cua của ông Bảy. Tuy rằng, bạn đã ăn sáng mấy chục năm cuộc đời rồi, nhưng việc lựa chọn món ăn chưa bao giờ là dễ cả. May mắn thay, trong một năm vừa qua, món ăn sáng của mỗi ngày đều đã được bạn lưu trữ trên điện thoại, trong ứng dụng ghi chú (đây chính là data quý giá). Sau khi đọc định nghĩa về Markov chain ở trên, bạn quyết định áp dụng để giải quyết bài toán "sáng nay ăn gì" này.
@@ -154,6 +161,7 @@ Vậy mô hình Markov chain chúng ta đã hiện thực đã dự đoán cho c
 
 *Chi tiết toàn bộ code, bạn đọc có thể tham khảo ở <a href="https://github.com/tuanio/tuanio.github.io/blob/main/assets/markov_chain/code/main.ipynb" target="_blank">đây</a>*
 
+<a name="-tong-ket"></a>
 # 3. Tổng kết
 
 Trên đây chỉ là một ví dụ nhỏ để mô tả khả năng của Markov chain. Ta có thể bắt gặp Markov chain trong nhiều bài toán khác như xây dựng <a href="https://en.wikipedia.org/wiki/N-gram" target="_blank">mô hình ngôn ngữ n-gram</a> trong lĩnh vực Xử lý ngôn ngữ tự nhiên, có thể ứng dụng vào việc <a href="https://en.wikipedia.org/wiki/PageRank" target="_blank">Xếp hạng trang (PageRank)</a> của Google (nhưng trên thực tế, Google sử dụng các mô hình phức tạp hơn Markov chain). Markov chain có thể phát triển lên một dạng khác, <a href="https://en.wikipedia.org/wiki/Hidden_Markov_model" target="_blank">mô hình Markov ẩn</a>, mà có thể ứng dụng trong bài toán <a href="https://en.wikipedia.org/wiki/Speech_recognition" target="_blank">Nhận dạng giọng nói</a>. Và rất nhiều các ứng dụng khác trong các lĩnh vực Vật lý, Hóa học, Sinh học, Lý thuyết hàng đợi, ... Bạn đọc có thể đọc thêm ở đường link <a href="https://en.wikipedia.org/wiki/Markov_chain" target="_bank">này</a>.
