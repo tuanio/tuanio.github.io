@@ -187,6 +187,8 @@ Ngoài vấn đề có quá nhiều cột trong feature đã được giải quy
 Để giải quyết vấn đề trên, ta có thể dùng một kỹ thuật được gọi là lượng hóa vector (<a href="https://en.wikipedia.org/wiki/Vector_quantization" target="_blank">vector quantization</a>). Lượng hóa vector có thể hiểu đơn giản là phân cụm các giá trị liên tục thành một tập các cụm có sự giống nhau. Chỉ số của các cụm bây giờ có thể coi như là các giá trị được lấy trong tập $V = \text{số cụm}$ phần tử. Giá trị trong cùng một tập sẽ có cùng một chỉ số này. Ở phần hiện thực, tôi sẽ đi lượng hóa vector bằng thuật toán <a href="https://en.wikipedia.org/wiki/K-means_clustering" target="_blank">K-Mean</a> với số cụm là 30.
 
 ````python
+X_cluster = X_transformed.reshape(-1, 1) 
+
 vq = KMeans(n_clusters=30) # vector quantization
 vq.fit(X_cluster)
 
