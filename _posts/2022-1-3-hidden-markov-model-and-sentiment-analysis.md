@@ -202,7 +202,7 @@ Kích cỡ dữ liệu: (4846, 300)
 
 Ngoài vấn đề có quá nhiều cột trong feature đã được giải quyết, ta còn gặp thêm một vấn đề nữa đó là dữ liệu không phù hợp với mô hình Markov ẩn. Như đã tìm hiểu trên phần 1, các quan sát $O$ của mô hình Markov ẩn được lấy từ một tập $V$ phần tử, vì thế, dữ liệu đưa vào cho mô hình Markov ẩn phải là dạng định tính.
 
-Để giải quyết vấn đề trên, ta có thể dùng một kỹ thuật được gọi là lượng hóa vector (<a href="https://en.wikipedia.org/wiki/Vector_quantization" target="_blank">vector quantization</a>). Lượng hóa vector có thể hiểu đơn giản là phân cụm các giá trị liên tục thành một tập các cụm có sự giống nhau. Chỉ số của các cụm bây giờ có thể coi như là các giá trị được lấy trong tập $V = \text{số cụm}$ phần tử. Giá trị trong cùng một tập sẽ có cùng một chỉ số này. Ở phần hiện thực, tôi sẽ đi lượng hóa vector bằng thuật toán <a href="https://en.wikipedia.org/wiki/K-means_clustering" target="_blank">K-Mean</a> với số cụm là 30.
+Để giải quyết vấn đề trên, ta có thể dùng một kỹ thuật được gọi là lượng hóa vector (<a href="https://en.wikipedia.org/wiki/Vector_quantization" target="_blank">vector quantization</a>). Lượng hóa vector có thể hiểu đơn giản là phân cụm các giá trị liên tục thành một tập các cụm có sự giống nhau. Chỉ số của các cụm bây giờ có thể coi như là các giá trị được lấy trong tập $V = \text{số cụm}$ phần tử. Giá trị trong cùng một tập sẽ có cùng một chỉ số này. Ở phần hiện thực, tôi sẽ đi lượng hóa vector bằng thuật toán <a href="https://en.wikipedia.org/wiki/K-means_clustering" target="_blank">K-Means</a> với số cụm là 30.
 
 ````python
 X_cluster = X_transformed.reshape(-1, 1) 
