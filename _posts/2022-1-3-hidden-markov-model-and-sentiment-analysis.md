@@ -2,7 +2,7 @@
 title: Mô hình Markov ẩn và bài toán phân tích cảm xúc văn bản
 date: 2022-1-3 20:51:00 +/-0084
 categories: [knowledge]
-tags: [machine learning, probability]
+tags: [machine learning, probability, nlp]
 toc: true
 comments: true
 published: true
