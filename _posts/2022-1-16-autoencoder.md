@@ -265,6 +265,8 @@ Dưới đây là confusion matrix của hai tập dữ liệu.
   <em>Hình 6: Confusion matrix của tập kiểm thử</em>
 </p>
 
+Toàn bộ code bạn đọc có thể lấy ở <a href="https://github.com/tuanio/autoencoder-anomaly-detection" target="_blank">đây</a>.
+
 <a name="-tong-ket">
 # 4. Tổng kết
 
