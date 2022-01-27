@@ -31,3 +31,5 @@ Vào thời gian này, mình cũng bắt đầu có kế hoạch học NLP, nên
 - **Understanding LSTM**: [https://colah.github.io/posts/2015-08-Understanding-LSTMs](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
 - **The Unreasonable Effectiveness of Recurrent Neural Networks**: [http://karpathy.github.io/2015/05/21/rnn-effectiveness/](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+
+- **Attention and Augmented Recurrent Neural Networks**: [https://distill.pub/2016/augmented-rnns/](https://distill.pub/2016/augmented-rnns/)
