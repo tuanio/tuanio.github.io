@@ -10,8 +10,6 @@ published: true
 
 *Bài viết này mang tính chất lưu trữ và chia sẻ*.
 
-Vào thời gian này, mình cũng bắt đầu có kế hoạch học NLP, nên bài viết này được lập ra nhằm lưu trữ các nguồn tài liệu, dữ liệu NLP, để mình hoặc bất kỳ ai truy cập khi cần thiết.
-
 # Những nguồn khi mới bắt đầu
 
 - [How to get started in nlp - medium](https://towardsdatascience.com/how-to-get-started-in-nlp-6a62aa4eaeff)
@@ -41,3 +39,8 @@ Vào thời gian này, mình cũng bắt đầu có kế hoạch học NLP, nên
 - **Sequence modeling with CTC**: [https://distill.pub/2017/ctc/](https://distill.pub/2017/ctc/)
 
 - **An Intuitive Explanation of Connectionist Temporal Classification**: [https://towardsdatascience.com/intuitively-understanding-connectionist-temporal-classification-3797e43a86c](https://towardsdatascience.com/intuitively-understanding-connectionist-temporal-classification-3797e43a86c)
+
+
+## Các blog machine 
+
+- **Andrej Karpathy blog**: [https://karpathy.github.io](https://karpathy.github.io)
