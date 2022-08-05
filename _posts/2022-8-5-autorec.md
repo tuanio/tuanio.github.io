@@ -42,6 +42,33 @@ Với AutoRec, tác giả sử dụng lại công thức của hàm mục tiêu 
 1. Chỉ cập nhật những trọng số tương ứng với những quan sát đã có, bằng cách nhân với mask trong quá trình huấn luyện, ta sẽ loại bỏ cập nhật được những quan sát chưa có.
 2. Chỉnh hoá các tham số của mô hình để tránh việc Overfit xảy ra.
 
-Vì thế, khi áp dụng hàm mục tiêu của Autoencoder với 2 thay đổi trên vào bộ vector rating $\\{\mathrm{r}^{(i)}\\}^n_{i=1}$ và tham số chỉnh hoá $\lambda > 0$ bất kỳ, ta sẽ có hàm mục tiêu của AutoRec:
+Vì thế, khi áp dụng hàm mục tiêu của Autoencoder với 2 thay đổi trên vào bộ vector rating của Item-based (gọi là I-AutoRec) $\\{\mathrm{r}^{(i)}\\}^n_{i=1}$ và tham số chỉnh hoá $\lambda > 0$ bất kỳ, ta sẽ có hàm mục tiêu của AutoRec:
 
-$$\underset{\theta}{\mathrm{min}} \sum_{i=1}^n||\mathrm{r} - h(\mathrm{r}; \theta)||^2_{2}$$
+$$\underset{\theta}{\mathrm{min}} \sum_{i=1}^n||\mathrm{r^{(i)}} - h(\mathrm{r^{(i)}}; \theta)||^2_{\mathcal{O}} + \dfrac{\lambda}{2}\cdot (||\mathrm{W}||^{2}_{F} + ||\mathrm{V}||^{2}_{F})$$
+
+trong đó, kí hiệu $$ \|\cdot\|^{2}_{\mathcal{O}} $$ thể hiện rằng chỉ xem xét những giá trị đã quan sát được (đã rating). Với User-based (gọi là U-AutoRec), ta áp dụng tương tự đối với tập vector rating $\\{\mathrm{r}^{(u)}\\}^m_{u=1}$. Tổng quan lại, I-AutoRec sẽ yêu cầu ước lượng $2mk + m + k$ tham số tất cả. Khi đã học được tham số $\hat{\theta}$, dự đoán rating của user $u$ dành cho item $i$ là:
+
+$$\mathrm{R}^{ui} = (h(\mathrm{r}^{(i))}; \hat{\theta}))_{u}$$
+
+Ở trong nghiên cứu, tác giả đề cập đến việc sử dụng các loại activation function khác nhau cho $f(\cdot)$ và $g(\cdot)$, bảng dưới đây đánh giá RMSE của các kết hợp (càng thấp càng tốt). Trong đó Identity là không có hàm kích hoạt, còn Sigmoid được định nghĩa ở <a href="https://en.wikipedia.org/wiki/Sigmoid_function" target="_blank">đây</a>.
+
+|$f(\cdot)$|$g(\cdot)$|RMSE|
+|---|---|---|
+|Identity|Identity|$0.872$|
+|Sigmoid|Identity|$0.852$|
+|Identity|Sigmoid|$\textbf{0.831}$|
+|Sigmoid|Sigmoid|$0.836$|
+
+Trong paper gốc, tác giả đề cập rằng AutoRec rất khác so với các mô hình dành cho CF lúc đó. Cụ thể, khi so sánh AutoRec với RBM-CF, ta có:
+1. RBM-CF là dạng mô hình tổng hợp xác suất (generative, probabilistic model) dựa trên RBM. Còn AutoRec là mô hình phân biệt (discriminative model) dựa trên Autoencoder.
+2. RBM-CF ước lượng các tham số bằng tối đa hoá log khả năng (maximizing log likelihood), còn AutoRec trực tiếp minimize RMSE, mà đây cũng là cách đánh giá hiệu suất kinh điển trong bài toán dự đoán rating.
+3. RBM-CF huấn luyện bằng contrastive divergence, còn AutoRec sử dụng gradient-based backpropagation, mà nhanh hơn nhiều so với RBM-CF.
+4. RBM-CF chỉ sử dụng được cho rating dạng rời rạc. Còn AutoRec dùng cho rating dạng liên tục. Với $r$ rating, RBM-CF phải tốn $nkr$ hoặc $mkr$ tham số, trong khi đó AutoRec không quan tâm đến số lượng $r$ nên dùng ít bộ nhớ hơn và khó overfit hơn.
+
+Còn khi AutoRec so sánh với Matrix Factorization thì:
+1. MF nhúng cả item và user vào không gian ẩn, còn I-AutoRec chỉ nhúng item (U-AutoRec chỉ nhúng user), nên mô hình sẽ nhẹ hơn.
+2. MF học một cách biểu diễn ẩn tuyến tính (linear latent representation), còn AutoRec có thể biểu diễn dữ liệu ẩn theo dạng phi tuyến (nonlinear latent representation) thông qua hàm kích hoạt $g(\cdot)$, mà sẽ tạo được sự tổng quát hoá dữ liệu tốt hơn nhiều.
+
+Trong phần sau, chúng ta sẽ đi thực nghiệm AutoRec bằng Pytorch trên bộ dữ liệu Movielens.
+
+# 3. Thực nghiệm với bộ dữ liệu Movielens
