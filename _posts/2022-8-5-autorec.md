@@ -16,7 +16,7 @@ math: true
 
 # 1. Hệ thống gợi ý và phương pháp Lọc cộng tác
 
-Hệ thống gợi ý (recommendation system), là hệ thống giúp đưa ra gợi ý sản phẩm thích hợp nhất đối với những người dùng cụ thể nào đó. Thường quá trình gợi ý này phụ thuộc vào nhiều yếu tố, ví dụ như sản phẩm nào họ đã từng mua, những sản phẩm nào họ đã tương tác (nút like), nhạc nào họ đã từng nghe, món nào họ đã từng ăn hoặc dựa trên những người họ quen biết trên nền tảng điện tử đó, hoặc dựa trên những người dùng có hành vi tương đối giống họ.
+Hệ thống gợi ý (recommendation system), là hệ thống giúp đưa ra gợi ý những sản phẩm thích hợp nhất đối với những người dùng cụ thể nào đó. Thường quá trình gợi ý này phụ thuộc vào nhiều yếu tố, ví dụ như sản phẩm nào họ đã từng mua, những sản phẩm nào họ đã tương tác (nút like), nhạc nào họ đã từng nghe, món nào họ đã từng ăn hoặc dựa trên những người họ quen biết trên nền tảng điện tử đó, hoặc dựa trên những người dùng có hành vi tương đối giống họ.
 
 Vâng, là dựa vào những người dùng có hành vi tương đối giống họ, đây là giải thích ngắn gọn cho phương pháp lọc cộng tác. Phương pháp lọc cộng tác (collaborative filtering) dùng dữ liệu từ những người dùng có hành vi tương đối giống họ (đánh giá dựa trên khoảng cách được tính từ một số yếu tố như có phải bạn bè hay không, các bộ phim đã yêu thích, thể loại đã xem, yêu thích, mức đánh giá ...) để đưa ra gợi ý cho người dùng đó tương tự như những người dùng này.
 
@@ -49,6 +49,11 @@ $$\underset{\theta}{\mathrm{min}} \sum_{i=1}^n||\mathrm{r^{(i)}} - h(\mathrm{r^{
 trong đó, kí hiệu $$ \|\cdot\|^{2}_{\mathcal{O}} $$ thể hiện rằng chỉ xem xét những giá trị đã quan sát được (đã rating). Với User-based (gọi là U-AutoRec), ta áp dụng tương tự đối với tập vector rating $\\{\mathrm{r}^{(u)}\\}^m_{u=1}$. Tổng quan lại, I-AutoRec sẽ yêu cầu ước lượng $2mk + m + k$ tham số tất cả. Khi đã học được tham số $\hat{\theta}$, dự đoán rating của user $u$ dành cho item $i$ là:
 
 $$\mathrm{R}^{ui} = (h(\mathrm{r}^{(i))}; \hat{\theta}))_{u}$$
+
+<p>
+    <img src="/assets/autorec/autorec.jpeg" alt="autorec"/>
+    <em>Hình 1. Cấu trúc của Item-based AutoRec, các node màu xám thể hiện rating đã có, màu trắng thể hiện không có rating và là giá trị cần dự đoán.</em>
+</p>
 
 Ở trong nghiên cứu, tác giả đề cập đến việc sử dụng các loại activation function khác nhau cho $f(\cdot)$ và $g(\cdot)$, bảng dưới đây đánh giá RMSE của các kết hợp (càng thấp càng tốt). Trong đó Identity là không có hàm kích hoạt, còn Sigmoid được định nghĩa ở <a href="https://en.wikipedia.org/wiki/Sigmoid_function" target="_blank">đây</a>.
 
