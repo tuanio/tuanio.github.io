@@ -1,5 +1,6 @@
 ---
-title: Bài toán Audio Classification    
+title: Bài toán Audio Classification   
+author: tuanio
 date: 2022-5-5 13:55:00 +/-0084
 categories: [knowledge]
 tags: [machine learning, audio classification, alexnet, cnn, supervised learning, speech recognition]

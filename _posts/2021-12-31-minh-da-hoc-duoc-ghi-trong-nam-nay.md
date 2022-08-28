@@ -1,5 +1,6 @@
 ---
 title: Mình đã học được gì trong năm nay?
+author: tuanio
 date: 2021-12-31 00:34:00 +/-0084
 categories: [share]
 tags: [think]

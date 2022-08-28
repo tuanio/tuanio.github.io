@@ -1,5 +1,6 @@
 ---
 title: Nguồn tài liệu để học NLP
+author: tuanio
 date: 2021-12-23 15:11:00 +/-0084
 categories: [resource, share]
 tags: [machine learning, nlp, ctc, rnn]

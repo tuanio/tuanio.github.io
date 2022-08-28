@@ -1,5 +1,6 @@
 ---
 title: Autoencoder và bài toán phát hiện bất thường trong an ninh mạng
+author: tuanio
 date: 2022-1-16 15:33:00 +/-0084
 categories: [knowledge]
 tags: [machine learning, autoencoder, feedforward neural network, nsl-kdd dataset, unsupervised learning, representation learning, anomaly detection]
