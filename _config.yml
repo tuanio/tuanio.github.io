@@ -42,10 +42,10 @@ social:
   email: nvatuan3@gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username      # change to your twitter homepage
+    # - https://twitter.com/username      # change to your twitter homepage
     - https://github.com/tuanio       # change to your github homepage
     - https://www.facebook.com/tuanio1211
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/tuanio
 
 google_site_verification: google_meta_tag_verification # change to your verification string
 
