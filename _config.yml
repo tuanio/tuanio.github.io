@@ -80,7 +80,7 @@ theme_mode:   # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://lh3.googleusercontent.com/ogw/ADea4I5Bb0iOVwyneawhDHGPfqkLzoSHGJqjDRSJikswoQ=s83-c-mo
+avatar: https://deforani.sirv.com/Images/tuanio.github.io/avatar/avatar.jpg
 
 # boolean type, the global switch for ToC in posts.
 toc: true
@@ -96,13 +96,13 @@ comments:
     issue_term:   # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: tuanio/tuanio.github.io
-    repo_id: R_kgDOGjRrKw
-    category: Q&A
-    category_id: DIC_kwDOGjRrK84CRGZz
-    mapping: pathname
-    input_position: bottom
-    lang:  en
+    repo: "tuanio/tuanio.github.io"
+    repo_id: "R_kgDOGjRrKw"
+    category: "Q&A"
+    category_id: "DIC_kwDOGjRrK84CRGZz"
+    mapping: "title"
+    input_position: "bottom"
+    lang:  "en"
 
     
 paginate: 10
