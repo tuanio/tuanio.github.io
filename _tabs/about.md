@@ -8,7 +8,7 @@ order: 4
 
 Chào mừng bạn đọc đã đến với blog của tôi 😁
 
-<img src="https://deforani.sirv.com/Images/tuanio.github.io/avatar/full.jpg" width="1884" height="2497" alt="" />
+<img src="https://deforani.sirv.com/Images/tuanio.github.io/avatar/full.jpg" alt="" />
 
 Tôi là Nguyễn Văn Anh Tuấn, hiện tại đang là sinh viên theo học ngành Khoa học dữ liệu tại trường Đại học Công nghiệp Thành phố Hồ Chí Minh, đồng thời cũng đang làm việc ở công ty WeAi, project EduplaX.
 
