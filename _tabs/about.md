@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-![My CV Here](https://github.com/tuanio/tuanio/blob/main/NguyenVanAnhTuan_CV.pdf)
+[My CV Here](https://github.com/tuanio/tuanio/blob/main/NguyenVanAnhTuan_CV.pdf)
 
 Chào mừng bạn đọc đã đến với blog của tôi 😁
 
